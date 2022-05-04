@@ -25,12 +25,12 @@ prices.forEach(price => {
 })
 console.log(total);
 const names = ['Selma', 'Ted', 'Mike', 'Sam', 'Sharon', 'Marvin'];// Result: ['Selma', 'Sam', 'Sharon'];
-let newNames = [];
-names.forEach(name => {
-    if (name.charAt(0) === "S") {
-        newNames.push(name);
-    }
-})
+const startsWithS = name => name.charAt(0) === "S";
+const newNames = names.filter(startsWithS); // this will add all names that start with s to the newNames array from the names array.
 console.log(newNames);
 
 names.forEach((name, index) => console.log(`${index + 1}) ${name}`));
+
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const evens = numbers.filter(number => number % 2 === 0); //add even numbers
+console.log(evens);
