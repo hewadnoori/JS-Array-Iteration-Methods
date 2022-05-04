@@ -80,7 +80,7 @@ const phoneNumbers = ["(503) 123-4567", "(646) 123-4567", "(503) 987-6543", "(50
 let numberOf503;
 
 // numberOf503 should be: 3
-// Write your code below
+// checks for the amount of numbers that have the 503 area code
 numberOf503 = phoneNumbers.reduce((phonebook, number) => {
     if (number.slice(1, 4) === "503") {
         return phonebook + 1;
@@ -90,3 +90,43 @@ numberOf503 = phoneNumbers.reduce((phonebook, number) => {
 }, 0
 );
 console.log(numberOf503);
+
+const years = [1989, 2015, 2000, 1999, 2013, 1973, 2012];
+let displayYears;
+
+// displayYears should be: ["2015 A.D.", "2013 A.D.", "2012 A.D."]
+// Write your code below
+displayYears = years
+    .filter(year => year >= 2001)
+    .map(year => `${year} A.D.`);
+console.log(displayYears);
+
+const users = [
+    { name: 'Samir', age: 27 },
+    { name: 'Angela', age: 33 },
+    { name: 'Beatrice', age: 42 }
+];
+console.log(users);
+const newUserArray = users
+    // .filter(user => user.name !== 'Samir')
+    // .map(user => `${user.name} is ${user.age} years old.`)
+    .reduce((users, user) => {
+        users[user.name] = user.age;
+        return users;
+    }, {}
+    );
+console.log(newUserArray);
+
+const authors = [
+    { firstName: "Beatrix", lastName: "Potter" },
+    { firstName: "Ann", lastName: "Martin" },
+    { firstName: "Beverly", lastName: "Cleary" },
+    { firstName: "Roald", lastName: "Dahl" },
+    { firstName: "Lewis", lastName: "Carroll" }
+];
+let fullAuthorNames;
+
+// fullAuthorNames should be: ["Beatrix Potter", "Ann Martin", "Beverly Cleary", "Roald Dahl", "Lewis Carroll"]
+// Write your code below
+fullAuthorNames = authors.map(author => `${author.firstName} ${author.lastName}`)
+console.log(fullAuthorNames);
