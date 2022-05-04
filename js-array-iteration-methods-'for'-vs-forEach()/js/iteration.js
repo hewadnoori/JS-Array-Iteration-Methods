@@ -50,3 +50,43 @@ const newPrices = prices2.map(priceToDollars)
 console.log(newPrices);
 // Result: [ '$5.00', '$4.23', '$6.40', '$8.09', '$3.20' ]
 
+const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let abbreviatedDays;
+
+// abbreviatedDays should be: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+abbreviatedDays = daysOfWeek.map(day => day.slice(0, 3));
+console.log(abbreviatedDays)
+
+//reduce method which lets you turn all of the items in an array into one value
+var prices3 = [6.75, 3.10, 4.00, 8.12].reduce(
+    (accumulator, currentValue) => accumulator + currentValue, //the accumulator is the var that holds each number and the currentvalue is the value that is being passed through
+    0 // 0 is the first value of the accumulator so its, 0 + 6.75, then 6.75 + 3.10, then 9.85 + 4.00
+); // Total: 21.97
+console.log(prices3);
+
+const names2 = ['Gary', 'Pasan', 'Gabe', 'Treasure', 'Gengis', 'Gladys', 'Tony']
+const gNameCount = names2.reduce((count, word) => {
+    if (word[0] === 'G') { //you can also use word.charAt(0)
+        return count + 1;
+    } else {
+        return count;
+    }
+}, 0
+);
+console.log(gNameCount);
+// Result: 4
+
+const phoneNumbers = ["(503) 123-4567", "(646) 123-4567", "(503) 987-6543", "(503) 234-5678", "(212) 123-4567", "(416) 123-4567"];
+let numberOf503;
+
+// numberOf503 should be: 3
+// Write your code below
+numberOf503 = phoneNumbers.reduce((phonebook, number) => {
+    if (number.slice(1, 4) === "503") {
+        return phonebook + 1;
+    } else {
+        return phonebook;
+    }
+}, 0
+);
+console.log(numberOf503);
