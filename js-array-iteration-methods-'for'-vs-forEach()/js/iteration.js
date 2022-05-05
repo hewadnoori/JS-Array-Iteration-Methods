@@ -181,3 +181,150 @@ unfinishedTasks = todos
     .filter(task => task.done === false)
     .map(task => task.todo);
 console.log(unfinishedTasks);
+
+const products = [
+    { name: 'hard drive', price: 59.99 },
+    { name: 'lighbulbs', price: 2.59 },
+    { name: 'paper towels', price: 6.99 },
+    { name: 'flatscreen monitor', price: 159.99 },
+    { name: 'cable ties', price: 19.99 },
+    { name: 'ballpoint pens', price: 4.49 }
+];
+//finds all products over $10 and finds the highest priced ones of those.
+const under10 = products
+    .filter(product => product.price < 10)
+    .reduce((highest, product) => {
+        if (highest.price > product.price) {
+            return highest;
+        } else {
+            return product
+        }
+    }, {}
+    );
+// Result: { name: 'paper towels', price: 6.99 }
+console.log(under10);
+//filters items costing more than $10 and adds prices together, rounding to the second decimal place.
+const over10 = products
+    .filter(product => product.price > 10)
+    .reduce((total, product) => total + product.price, 0)
+    .toFixed(2);
+console.log(over10);
+
+const purchaseItems = [
+    {
+        name: 'apples',
+        dept: 'groceries',
+        price: 2.49
+    },
+    {
+        name: 'bread',
+        dept: 'groceries',
+        price: 2.99
+    },
+    {
+        name: 'batteries',
+        dept: 'electronics',
+        price: 5.80
+    },
+    {
+        name: 'eggs',
+        dept: 'groceries',
+        price: 3.99
+    },
+    {
+        name: 't-shirts',
+        dept: 'apparel',
+        price: 9.99
+    }
+];
+let groceryTotal;
+//filter for groceries and adds them tgther
+// groceryTotal should be: 9.47
+groceryTotal = purchaseItems
+    .filter(item => item.dept === "groceries")
+    .reduce((sum, item) => sum + item.price, 0)
+console.log(groceryTotal);
+
+const movies = [
+    ['The Day the Earth Stood Still', 'Superman', 'Ghostbusters'],
+    ['Finding Dory'],
+    ['Jaws', 'On the Waterfront']
+]
+
+const flatMovies = movies.reduce((arr, innerMovies) => [...arr, ...innerMovies], []);
+console.log(flatMovies);
+// Result: ['The Day the Earth Stood Still', 'Superman', 'Ghostbusters', 'Finding Dory', 'Jaws', 'On the Waterfront']
+
+const users3 = [
+    {
+        name: 'Samir',
+        age: 27,
+        favoriteBooks: [
+            { title: 'The Iliad' },
+            { title: 'The Brothers Karamazov' }
+        ]
+    },
+    {
+        name: 'Angela',
+        age: 33,
+        favoriteBooks: [
+            { title: 'Tenth of December' },
+            { title: 'Cloud Atlas' },
+            { title: 'One Hundred Years of Solitude' }
+        ]
+    },
+    {
+        name: 'Beatrice',
+        age: 42,
+        favoriteBooks: [
+            { title: 'Candide' }
+        ]
+    }
+];
+//gets all of the favoriteBooks arrays, then all of the titles into 3 arrays, then puts them all into one array.
+const favbooks = users3
+    .map(user => user.favoriteBooks.map(book => book.title))
+    .reduce((arr, titles) => [...arr, ...titles], []);
+console.log(favbooks);
+// Result: ['The Iliad', 'The Brothers Karamazov', 'Tenth of December', 'Cloud Atlas', 'One Hundred Years of Solitude', 'Candide'];
+
+const customerNames = [
+    ["John", "Sandy", "Tyrone", "Elizabeth", "Penny"],
+    ["Barry", "Wanda", "Jamal", "Hayden"],
+    ["Portia", "Pam", "Philip"]
+];
+let flattenedCustomerNames;
+
+// flattenedCustomerNames should be: ["John", "Sandy", "Tyrone", "Elizabeth", "Penny", "Barry", "Wanda", "Jamal", "Hayden", "Portia", "Pam", "Philip"]
+flattenedCustomerNames = customerNames.reduce((arr, names) => [...arr, ...names], []);
+console.log(flattenedCustomerNames);
+
+const customers = [
+    {
+        name: "Tyrone",
+        personal: {
+            age: 33,
+            hobbies: ["Bicycling", "Camping"]
+        }
+    },
+    {
+        name: "Elizabeth",
+        personal: {
+            age: 25,
+            hobbies: ["Guitar", "Reading", "Gardening"]
+        }
+    },
+    {
+        name: "Penny",
+        personal: {
+            age: 36,
+            hobbies: ["Comics", "Chess", "Legos"]
+        }
+    }
+];
+let hobbies;
+// hobbies should be: ["Bicycling", "Camping", "Guitar", "Reading", "Gardening", "Comics", "Chess", "Legos"]
+hobbies = customers
+    .map(customers => customers.personal.hobbies)
+    .reduce((arr, hobbies) => [...arr, ...hobbies], [])
+console.log(hobbies);
