@@ -130,3 +130,54 @@ let fullAuthorNames;
 // Write your code below
 fullAuthorNames = authors.map(author => `${author.firstName} ${author.lastName}`)
 console.log(fullAuthorNames);
+
+const userNames = ['Samir', 'Angela', 'Beatrice', 'Shaniqua', 'Marvin', 'Sean'];
+const newUsers = userNames
+    .filter(user => user.charAt(0) === 'S')
+    .map(user => ({ user: user })); //you can also use the shorthand ({user})
+console.log(newUsers);
+// Result: [{name: 'Samir'}, {name: 'Shaniqua'}, {name:'Sean'}];
+
+const users2 = [
+    { name: 'Samir', age: 27 },
+    { name: 'Angela', age: 33 },
+    { name: 'Beatrice', age: 42 },
+    { name: 'Shaniqua', age: 30 },
+    { name: 'Marvin', age: 23 },
+    { name: 'Sean', age: 47 }
+];
+const userNames2 = users2
+    .filter(user => user.age >= 30)
+    .map(user => user.name);
+console.log(userNames2);
+
+const todos = [
+    {
+        todo: 'Buy apples',
+        done: false
+    },
+    {
+        todo: 'Wash car',
+        done: true
+    },
+    {
+        todo: 'Write web app',
+        done: false
+    },
+    {
+        todo: 'Read MDN page on JavaScript arrays',
+        done: true
+    },
+    {
+        todo: 'Call mom',
+        done: false
+    }
+];
+let unfinishedTasks;
+
+// unfinishedTasks should be: ["Buy apples", "Write web app", "Call mom"]
+// Write your code below
+unfinishedTasks = todos
+    .filter(task => task.done === false)
+    .map(task => task.todo);
+console.log(unfinishedTasks);
