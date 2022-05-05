@@ -328,3 +328,67 @@ hobbies = customers
     .map(customers => customers.personal.hobbies)
     .reduce((arr, hobbies) => [...arr, ...hobbies], [])
 console.log(hobbies);
+
+const numbers3 = [1, 2, 3, 4, 5];
+let total2 = 0;
+
+// Write loop here:
+numbers3.forEach(number => { total2 += number })
+console.log(total2)
+
+const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let dayAbbreviations = [];
+
+// dayAbbreviations should be: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+days.forEach(day => dayAbbreviations.push(day.slice(0, 2)))
+console.log(dayAbbreviations);
+
+const stringPrices = ['5.47', '3.12', '8.00', '5.63', '10.70'];
+let priceTotal = 0;
+
+stringPrices.forEach(price => priceTotal += parseFloat(price))
+console.log(priceTotal);
+// priceTotal should be: 32.92
+
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+let noel = [];
+alphabet.forEach(letter => {
+    if (letter !== "L") {
+        noel.push(letter);
+    }
+})
+console.log(noel)
+// noel should be: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+// Write your code below
+
+const percentages = [34, 67, 12, 39, 90, 82, 22, 24, 99];
+let upperRange = [];
+
+percentages.forEach(percent => {
+    if (percent > 50) {
+        upperRange.push(percent);
+    }
+})
+console.log(upperRange)
+// upperRange should be: [67, 90, 82, 99]
+// Write your code below
+const colors = ['#87E2D0', '#559F4D', '#FFE0F4', '#7E7E7E', '#FF2D2D', '#F7FFEC'];
+let filteredColors = [];
+
+// filteredColors should be: ['#FFE0F4', '#FF2D2D', '#F7FFEC']
+// Write your code below
+colors.forEach(color => {
+    if (color.charAt(1) === "F") {
+        filteredColors.push(color);
+    }
+})
+console.log(filteredColors);
+
+const months = ['january', 'february', 'march', 'april', 'may'];
+let capitalizedMonths = [];
+
+// capitalizedMonths should be: ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY']
+// Write your code below
+
+months.forEach(month => capitalizedMonths.push(month.toUpperCase()))
+console.log(capitalizedMonths);
